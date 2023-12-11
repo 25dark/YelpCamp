@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const ejsMate = require("ejs-mate");
 const methodeOverride = require("method-override");
 const Campground = require("./models/campground");
 
@@ -16,6 +17,7 @@ async function main() {
 
 const app = express();
 
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -63,7 +65,6 @@ app.delete("/campgrounds/:id", async (req, res) => {
   await Campground.findByIdAndDelete(id);
   res.redirect("/campgrounds");
 });
-
 
 app.listen(3000, () => {
   console.log("APP LISTENING ON PORT 3000");
