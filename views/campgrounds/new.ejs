@@ -1,14 +1,67 @@
 <% layout('layout/boilerplate')%>
-<form action="/campgrounds" method="post">
-  <div>
-    <label for="">Title</label>
-    <input type="text" name="campground[title]" id="title" />
-  </div>
-  <div>
-    <label for="">Location</label>
-    <input type="text" name="campground[location]" id="location" />
-  </div>
-  <button>Add Campground</button>
-</form>
+<div class="row">
+  <h1 class="text-center">New Campground</h1>
+  <div class="col-6 offset-3">
+    <form action="/campgrounds" method="post">
+      <div class="mb-3">
+        <label class="form-label" for="">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          name="campground[title]"
+          id="title"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          name="campground[location]"
+          id="location"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="">Image Url</label>
+        <input
+          class="form-control"
+          type="text"
+          name="campground[image]"
+          id="location"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          name="campground[description]"
+          id="description"
+        ></textarea>
+      </div>
 
-<a href="/campgrounds">Cancel</a>
+      <div class="mb-3">
+        <label class="form-label" for="">Price</label>
+
+        <div class="input-group">
+          <span class="input-group-text" id="price">$</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="0.00"
+            aria-label="price"
+            name="campground[price]"
+            aria-describedby=""
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-success">Add Campground</button>
+      </div>
+    </form>
+    <div class="mb-3">
+      <a href="/campgrounds">Cancel</a>
+    </div>
+  </div>
+</div>
