@@ -3,7 +3,7 @@
 <div class="row">
   <h1 class="text-center">Edit Campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post">
+    <form action="/campgrounds/<%= campground._id %>?_method=PUT" class="validated-form" method="post" novalidate>
       <div class="mb-3">
         <label class="form-label" for="">Title</label>
         <input
@@ -12,8 +12,10 @@
           name="campground[title]"
           id="title"
           value="<%= campground.title %>"
-        />
-      </div>
+          required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
       <div class="mb-3">
         <label class="form-label" for="">Location</label>
         <input
@@ -22,8 +24,10 @@
           name="campground[location]"
           id="location"
           value="<%= campground.location %>"
-        />
-      </div>
+          required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
       <div class="mb-3">
         <label class="form-label" for="">Image Url</label>
         <input
@@ -32,8 +36,10 @@
           name="campground[image]"
           id="location"
           value="<%= campground.image %>"
-        />
-      </div>
+          required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
       <div class="mb-3">
         <label class="form-label" for="">Description</label>
         <textarea
@@ -41,9 +47,11 @@
           type="text"
           name="campground[description]"
           id="description"
+          required
         >
 <%= campground.description %></textarea
         >
+        <div class="valid-feedback">Looks good!</div>
       </div>
 
       <div class="mb-3">
@@ -59,8 +67,9 @@
             name="campground[price]"
             aria-describedby=""
             value="<%= campground.price %>"
-          />
-        </div>
+            required
+            />
+            <div class="valid-feedback">Looks good!</div>
       </div>
 
       <div class="mb-3">
